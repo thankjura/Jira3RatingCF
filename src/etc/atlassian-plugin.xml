@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<atlassian-plugin key="ru.slie.jira.customfields.rating-customfield" name="Slie Jira Plugins">
+    <plugin-info>
+        <description>Slie Jira Plugins</description>
+        <version>1.0</version>
+        <vendor name="Yury Oboz" url="me@slie.ru"/>
+    </plugin-info>
+
+    <customfield-type name="Rating Custom Field" key="rating-custom-field" class="com.atlassian.jira.issue.customfields.impl.SelectCFType">
+        <description>The Rating Custom Field Plugin</description>
+        <resource type="velocity" name="view" location="templates/view.vm"/>
+        <resource type="velocity" name="column-view" location="templates/view.vm"/>
+        <resource type="velocity" name="edit" location="templates/edit.vm"/>
+        <resource type="velocity" name="xml" location="templates/xml.vm"/>
+    </customfield-type>
+
+    <customfield-searcher key="rating-searcher" name="Select List Searcher" class="com.atlassian.jira.issue.customfields.searchers.SelectSearcher">
+        <description>Search for values using a select list.</description>
+        <resource type="velocity" name="search" location="templates/searchers/search-select.vm"/>
+        <resource type="velocity" name="view" location="templates/searchers/view-searcher-htmltext.vm"/>
+        <valid-customfield-type package="ru.slie.jira.customfields.rating-customfield" key="rating-custom-field"/>
+    </customfield-searcher>
+
+</atlassian-plugin>
